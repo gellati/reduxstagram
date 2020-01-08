@@ -1,0 +1,124 @@
+{
+  "name": "learn-redux",
+  "version": "1.0.0",
+  "description": ":) ",
+  "scripts": {
+    "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
+    "build": "npm run clean && npm run build:webpack",
+    "test": "NODE_ENV=production mocha './tests/**/*.spec.js' --compilers js:babel-core/register",
+    "clean": "rimraf dist",
+    "start": "node devServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wesbos/Learn-Redux.git"
+  },
+  "author": "Wes Bos",
+  "license": "MIT",
+  "homepage": "https://github.com/wesbos/Learn-Redux",
+  "dependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/helper-module-imports": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+    "@babel/plugin-transform-react-display-name": "^7.7.4",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/runtime": "^7.7.7",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^0.23.1",
+    "eslint-plugin-babel": "^5.3.0",
+    "express": "^4.13.4",
+    "file-loader": "^5.0.2",
+    "prop-types": "^15.7.2",
+    "raven-js": "^2.1.1",
+    "react": "^16.12.0",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-dom": "^16.12.0",
+    "react-redux": "^4.4.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-router-redux": "^4.0.8",
+    "redbox-react": "^1.6.0",
+    "redux": "^4.0.5",
+    "rimraf": "^2.5.2",
+    "style-loader": "^0.13.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "webpack": "^4.41.5",
+    "webpack-dev-middleware": "^1.5.1",
+    "webpack-hot-middleware": "^2.7.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.17.0",
+    "expect": "^1.14.0",
+    "expect-jsx": "^2.3.0",
+    "mocha": "^2.4.5",
+    "react-addons-test-utils": "^0.14.7"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      "@babel/preset-env"
+    ],
+    "env": {
+      "development": {
+        "plugins": [
+          [
+            "@babel/plugin-proposal-object-rest-spread"
+          ],
+          [
+            "@babel/plugin-transform-react-display-name"
+          ]
+        ]
+      },
+      "production": {
+        "plugins": [
+          [
+            "@babel/plugin-proposal-object-rest-spread"
+          ],
+          [
+            "@babel/plugin-transform-react-display-name"
+          ]
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "parser": "babel-eslint",
+    "rules": {
+      "quotes": [
+        2,
+        "single"
+      ],
+      "strict": [
+        2,
+        "never"
+      ],
+      "babel/generator-star-spacing": 1,
+      "babel/new-cap": 1,
+      "babel/object-shorthand": 1,
+      "babel/arrow-parens": 1,
+      "babel/no-await-in-loop": 1,
+      "react/jsx-uses-react": 2,
+      "react/jsx-uses-vars": 2,
+      "react/react-in-jsx-scope": 2
+    },
+    "plugins": [
+      "babel",
+      "react"
+    ]
+  }
+}
