@@ -22,7 +22,7 @@ module.exports = {
       {
         test: /\.js$/,
         loaders: ['babel-loader'],
-        include: path.join(__dirname, 'client')
+        include: path.join(__dirname, 'client'),
       },
       // CSS
       { 
@@ -33,6 +33,7 @@ module.exports = {
       // load image files
       {
         test: /\.(png|jpe?g|gif)$/i,
+        include: path.join(__dirname, 'public'),
         use: [
           {
             loader: 'file-loader',

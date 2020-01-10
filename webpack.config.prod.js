@@ -31,14 +31,23 @@ module.exports = {
       {
         test: /\.js$/,
         loaders: ['babel-loader'],
-        include: path.join(__dirname, 'client')
+        include: path.join(__dirname, 'client'),
       },
       // CSS
       { 
         test: /\.styl$/, 
         include: path.join(__dirname, 'client'),
         loader: 'style-loader!css-loader!stylus-loader'
-      }
+      },
+      // load image files
+      {
+        test: /\.(png|jpe?g|gif|jpg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ]
   }
 };

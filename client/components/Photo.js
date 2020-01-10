@@ -8,31 +8,52 @@ import PropTypes from 'prop-types'
 import * as actionCreators from '../actions/actionCreators'
 
 class Photo extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      image: null,
+      code: null,
+      caption: null,
+    }
+  }
+
+  componentDidMount() {
+    const { post } = this.props
+    if(post) {
+      this.setState({
+        display_src: require(`../../public/images/${post.display_src}`).default,
+        code: post.code,
+        likes: post.likes,
+        caption: post.caption,
+      })
+    }
+  }
+
   render() {
-    const { post, i, comments } = this.props
+    const { i, comments } = this.props
     return (
       <figure key={i} className="grid-figure">
 
         <div className='grid-photo-wrap'>
-          <Link to={`/view/${post.code}`}>
-            <img className='grid-photo' src={require(`../../public/images/${post.display_src}`).default} alt={post.caption} />
+          <Link to={`/view/${this.state.code}`}>
+            <img className='grid-photo' src={this.state.display_src} alt={this.state.caption} />
           </Link>
 
           <CSSTransitionGroup transitionName="like" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
-            <span key={post.likes} className="likes-heart">{post.likes}</span>
+            <span key={this.state.likes} className="likes-heart">{this.state.likes}</span>
           </CSSTransitionGroup>
 
         </div>
 
         <figcaption>
-          <p>{post.caption}</p>
+          <p>{this.state.caption}</p>
 
           <div className="control-buttons">
-            <button onClick={this.props.increment.bind(null,i)} className="likes">&hearts; {post.likes}</button>
+            <button onClick={this.props.increment.bind(null,i)} className="likes">&hearts; {this.state.likes}</button>
 
-            <Link to={`/view/${post.code}`} className="button">
+            <Link to={`/view/${this.state.code}`} className="button">
               <span className="comment-count">
-                <span className="speech-bubble"></span> {(comments[post.code] ? comments[post.code].length : 0)}
+                <span className="speech-bubble"></span> {(comments[this.state.code] ? comments[this.state.code].length : 0)}
               </span>
             </Link>
           </div>

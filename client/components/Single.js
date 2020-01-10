@@ -8,8 +8,8 @@ import * as actionCreators from '../actions/actionCreators'
 
 class Single extends React.Component {
   render() {
-    const i = this.props.posts.findIndex((post)=> 
-      post.code === this.props.match.params.postId)
+    const i = this.props.posts.findIndex((post) => 
+      post.id === this.props.match.params.postId)
 
     return (
       <div className="single-photo">
