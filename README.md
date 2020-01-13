@@ -22,6 +22,13 @@ Run
 
 This will create a distro folder with a `bundle.js` file.
 
+## Tests
+
+Tests are located in the `test` folder. They can be run with
+
+    npm run test
+
+This runs all tests.
 
 ## Image data
 

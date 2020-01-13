@@ -16,3 +16,12 @@ https://stackoverflow.com/questions/45421014/indexroute-equivalent-in-react-rout
 React Router changed the route props object so that:
 this.props.params -> this.props.match.params
 https://stackoverflow.com/questions/45144085/react-this-props-params-undefined
+
+React router <Link> should be wrapped inside a Router component
+https://reacttraining.com/react-router/web/guides/testing
+This is done in the tests
+
+
+## babel
+`Error: options/query cannot be used with loaders (use options for each array item) in {` the -1 answer 
+https://stackoverflow.com/questions/42220851/webpack-2-error-options-query-cannot-be-used-with-loaders-use-options-for-eac
