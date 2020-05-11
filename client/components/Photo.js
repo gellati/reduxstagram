@@ -29,6 +29,17 @@ class Photo extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if(prevProps.post.likes !== null && prevProps.post.likes !== this.props.post.likes) {
+      const { post } = this.props
+      if(post) {
+        this.setState({
+          likes: post.likes,
+        })
+      }
+    }
+  }
+
   render() {
     const { i, comments } = this.props
     return (
@@ -49,7 +60,9 @@ class Photo extends React.Component {
           <p>{this.state.caption}</p>
 
           <div className="control-buttons">
-            <button onClick={this.props.increment.bind(null,i)} className="likes">&hearts; {this.state.likes}</button>
+            {
+              <button onClick={this.props.increment.bind(null,i)} className="likes">&hearts; {this.state.likes}</button>
+            }
 
             <Link to={`/view/${this.state.code}`} className="button">
               <span className="comment-count">
